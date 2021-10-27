@@ -1,0 +1,6 @@
+#compiled builds
+/bin/
+#rider moment
+/.idea/
+#iunno
+/obj/
