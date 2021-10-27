@@ -1,0 +1,15 @@
+{
+   "$schema" : "https://raw.githubusercontent.com/bsmg/BSIPA-MetadataFileSchema/master/Schema.json",
+   "id" : "Scripter",
+   "name" : "Scripter",
+   "author" : "headassbtw",
+   "version" : "0.1.0",
+   "gameVersion" : "1.18.2",
+   "description" : "A tool to run bash/batch/powershell scripts from within beat saber",
+   "dependsOn" : {
+      "BSIPA" : "^4.1.3"
+   },
+   "misc" : {
+      "generated-by" : "BSMT.Tasks/1.4.2.0"
+   }
+}
