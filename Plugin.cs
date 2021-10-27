@@ -5,6 +5,7 @@ using System.Linq;
 using IPA;
 using IPA.Config;
 using IPA.Config.Stores;
+using Scripter.OS;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using IPALogger = IPA.Logging.Logger;
@@ -24,6 +25,8 @@ namespace Scripter
             Instance = this;
             Log = logger;
             Log.Info("Scripter initialized.");
+            string os = OSDetector.OS() ? "Linux" : "Windows";
+            Log.Notice($"OS is: {os}");
         }
 
         #region BSIPA Config

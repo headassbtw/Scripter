@@ -1,6 +1,6 @@
 #compiled builds
-/bin/
+bin/
 #rider moment
-/.idea/
+.idea/
 #iunno
-/obj/
+obj/
