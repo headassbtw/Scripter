@@ -93,4 +93,16 @@
     <None Remove="Resources\scripter.png" />
     <EmbeddedResource Include="Resources\scripter.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Include="obj\Debug\net472\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="obj\Debug\net472\Scripter.AssemblyInfoInputs.cache" />
+    <Content Include="obj\Debug\net472\Scripter.assets.cache" />
+    <Content Include="obj\Debug\net472\Scripter.csproj.AssemblyReference.cache" />
+    <Content Include="obj\project.assets.json" />
+    <Content Include="obj\project.nuget.cache" />
+    <Content Include="obj\project.packagespec.json" />
+    <Content Include="obj\Scripter.csproj.nuget.dgspec.json" />
+  </ItemGroup>
 </Project>
