@@ -22,7 +22,14 @@ namespace Scripter.OS
                 case ScriptType.Bash:
                     Process bashRunner = new Process();
                     bashRunner.StartInfo.FileName = "cmd";
-                    bashRunner.StartInfo.Arguments = $"/c start /unix {script.Path}";
+                    string LinuxPath = script.Path
+                        .Replace("Z:\\", "/")
+                        .Replace('\\', '/')
+                        .Replace(" ", "\\ ");
+                    Plugin.Log.Warn($"Running script via bash at {script.Path}");
+                    Plugin.Log.Warn($"({LinuxPath})");
+                    Plugin.Log.Warn($"/c start /unix /bin/bash -c \"{LinuxPath}\"");
+                    bashRunner.StartInfo.Arguments = $"/c start /unix /bin/bash -c \"{LinuxPath}\"";
                     bashRunner.Start();
                     break;
                 case ScriptType.Batch:
