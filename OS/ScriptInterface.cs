@@ -13,6 +13,6 @@ namespace Scripter.OS
         //.ps1, powershell, both compatible, but optionally installable on linux, this is to make sure it's there
         public abstract bool PowershellSupported();
         
-        public abstract void Run(string script, ScriptType fileType);
+        public abstract void Run(Script.Script script);
     }
 }

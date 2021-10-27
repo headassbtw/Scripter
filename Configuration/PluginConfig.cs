@@ -1,5 +1,9 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using IPA.Config.Stores;
+using IPA.Config.Stores.Attributes;
+using IPA.Config.Stores.Converters;
+using Newtonsoft.Json;
 
 [assembly: InternalsVisibleTo(GeneratedStore.AssemblyVisibilityTarget)]
 namespace Scripter.Configuration
@@ -7,6 +11,14 @@ namespace Scripter.Configuration
     internal class PluginConfig
     {
         public static PluginConfig Instance { get; set; }
+        public virtual bool Enabled { get; set; }
+        
+        //[UseConverter(typeof(CollectionConverter<Script.Script,List<Script.Script>,CustomObjectConverter<Script.Script>>))]
+        [UseConverter]
+        public virtual List<Script.Script> Scripts { get; set; }
+        
+        public virtual Dictionary<string, (string, bool,bool)> Test2 { get; set; }
+
 
         /// <summary>
         /// This is called whenever BSIPA reads the config from disk (including when file changes are detected).

@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using IPA;
 using IPA.Config;
 using IPA.Config.Stores;
+using IPA.Utilities;
+using Scripter.Configuration;
 using Scripter.OS;
 using UnityEngine.SceneManagement;
 using UnityEngine;
@@ -27,6 +30,12 @@ namespace Scripter
             Log.Info("Scripter initialized.");
             string os = OSDetector.OS() ? "Linux" : "Windows";
             Log.Notice($"OS is: {os}");
+            #region dir creation
+            if (!Directory.Exists(Path.Combine(UnityGame.UserDataPath, "Scripter")))
+                Directory.CreateDirectory(Path.Combine(UnityGame.UserDataPath, "Scripter"));
+            if (!Directory.Exists(Path.Combine(UnityGame.UserDataPath, "Scripter","Scripts")))
+                Directory.CreateDirectory(Path.Combine(UnityGame.UserDataPath, "Scripter","Scripts"));
+            #endregion
         }
 
         #region BSIPA Config
@@ -35,6 +44,8 @@ namespace Scripter
         {
             Configuration.PluginConfig.Instance = conf.Generated<Configuration.PluginConfig>();
             Log.Debug("Config loaded");
+            PluginConfig.Instance.Scripts = new List<Script.Script>();
+            PluginConfig.Instance.Scripts.Add(new Script.Script("Z:\\home\\headass\\hi.sh"));
         }
 
         #endregion

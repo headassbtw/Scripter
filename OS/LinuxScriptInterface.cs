@@ -15,24 +15,24 @@ namespace Scripter.OS
             return File.Exists("Z:\\usr\\bin\\powershell");
         }
 
-        public override void Run(string script, ScriptType fileType)
+        public override void Run(Script.Script script)
         {
-            switch (fileType)
+            switch (script.Type)
             {
                 case ScriptType.Bash:
-                    Process BashRunner = new Process();
-                    BashRunner.StartInfo.FileName = "cmd";
-                    BashRunner.StartInfo.Arguments = $"/c start /unix {script}";
-                    BashRunner.Start();
+                    Process bashRunner = new Process();
+                    bashRunner.StartInfo.FileName = "cmd";
+                    bashRunner.StartInfo.Arguments = $"/c start /unix {script.Path}";
+                    bashRunner.Start();
                     break;
                 case ScriptType.Batch:
                     
                     break;
                 case ScriptType.Powershell:
-                    Process PowershellRunner = new Process();
-                    PowershellRunner.StartInfo.FileName = "cmd";
-                    PowershellRunner.StartInfo.Arguments = $"/c start /unix /usr/bin/powershell {script}";
-                    PowershellRunner.Start();
+                    Process powershellRunner = new Process();
+                    powershellRunner.StartInfo.FileName = "cmd";
+                    powershellRunner.StartInfo.Arguments = $"/c start /unix /usr/bin/powershell {script.Path}";
+                    powershellRunner.Start();
                     break;
             }
         }

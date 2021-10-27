@@ -12,6 +12,7 @@
     <AssemblyTitle>Scripter</AssemblyTitle>
     <Product>Scripter</Product>
     <Copyright>Copyright © headassbtw </Copyright>
+    <LangVersion>preview</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition="$(DefineConstants.Contains('CIBuild')) OR '$(NCrunch)' == '1'">
     <DisableCopyToPlugins>True</DisableCopyToPlugins>
@@ -84,5 +85,12 @@
     <None Include="Directory.Build.props" Condition="Exists('Directory.Build.props')" />
     <None Include="Directory.Build.targets" Condition="Exists('Directory.Build.targets')" />
     <None Include="$safeprojectname$.csproj.user" Condition="Exists('$safeprojectname$.csproj.user')" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UI" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Resources\scripter.png" />
+    <EmbeddedResource Include="Resources\scripter.png" />
   </ItemGroup>
 </Project>
